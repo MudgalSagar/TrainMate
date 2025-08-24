@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import WorkoutCharts from "../components/WorkoutCharts";
 import { useNavigate } from "react-router-dom";
-
+import ChatBot from "../components/Chat";
 const WorkoutHistory = () => {
   const [workouts, setWorkouts] = useState([]);
   const navigate = useNavigate();
@@ -16,7 +16,7 @@ const WorkoutHistory = () => {
             Authorization: `Bearer ${token}`,
           },
         });
-        
+
         const data = await res.json();
         if (res.ok) {
           setWorkouts(data);
@@ -32,12 +32,17 @@ const WorkoutHistory = () => {
   }, []);
 
   const getCategoryColor = (category) => {
-    switch(category) {
-      case "Cardio": return "bg-red-100 text-red-800";
-      case "Strength": return "bg-blue-100 text-blue-800";
-      case "Flexibility": return "bg-green-100 text-green-800";
-      case "Balance": return "bg-purple-100 text-purple-800";
-      default: return "bg-gray-100 text-gray-800";
+    switch (category) {
+      case "Cardio":
+        return "bg-red-100 text-red-800";
+      case "Strength":
+        return "bg-blue-100 text-blue-800";
+      case "Flexibility":
+        return "bg-green-100 text-green-800";
+      case "Balance":
+        return "bg-purple-100 text-purple-800";
+      default:
+        return "bg-gray-100 text-gray-800";
     }
   };
 
@@ -49,7 +54,7 @@ const WorkoutHistory = () => {
           <h1 className="text-3xl font-bold text-gray-800">
             <span className="text-orange-500">WORKOUT</span> HISTORY
           </h1>
-          <button 
+          <button
             onClick={() => navigate("/dashboard")}
             className="px-4 py-2 bg-orange-500 hover:bg-orange-600 text-white rounded-md transition"
           >
@@ -74,7 +79,7 @@ const WorkoutHistory = () => {
           <h2 className="text-xl font-semibold mb-4 text-gray-700">
             🏆 Your Workout Log
           </h2>
-          
+
           {workouts.length === 0 ? (
             <div className="text-center py-8 text-gray-500">
               No workouts recorded yet. Get started with your fitness journey!
@@ -84,26 +89,36 @@ const WorkoutHistory = () => {
               {workouts
                 .sort((a, b) => new Date(b.date) - new Date(a.date))
                 .map((w) => (
-                  <li key={w._id} className="border-b border-gray-100 pb-4 last:border-0">
+                  <li
+                    key={w._id}
+                    className="border-b border-gray-100 pb-4 last:border-0"
+                  >
                     <div className="flex justify-between items-start">
                       <div>
-                        <div className="font-medium text-gray-800">{w.name}</div>
+                        <div className="font-medium text-gray-800">
+                          {w.name}
+                        </div>
                         <div className="flex items-center mt-1 space-x-3">
                           <span className="text-gray-600">
                             ⏱️ {w.duration} minutes
                           </span>
                           {w.category && (
-                            <span className={`px-2 py-1 text-xs rounded-full ${getCategoryColor(w.category)}`}>
+                            <span
+                              className={`px-2 py-1 text-xs rounded-full ${getCategoryColor(
+                                w.category
+                              )}`}
+                            >
                               {w.category}
                             </span>
                           )}
                         </div>
                         <div className="mt-1 text-sm text-gray-500">
-                          🗓️ {new Date(w.date).toLocaleDateString('en-US', { 
-                            weekday: 'short', 
-                            year: 'numeric', 
-                            month: 'short', 
-                            day: 'numeric' 
+                          🗓️{" "}
+                          {new Date(w.date).toLocaleDateString("en-US", {
+                            weekday: "short",
+                            year: "numeric",
+                            month: "short",
+                            day: "numeric",
                           })}
                         </div>
                       </div>
@@ -114,6 +129,7 @@ const WorkoutHistory = () => {
           )}
         </div>
       </div>
+      <ChatBot />
     </div>
   );
 };

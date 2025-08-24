@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-
+import Chat from "../components/Chat";
 const Dashboard = () => {
   const [workouts, setWorkouts] = useState([]);
   const [name, setName] = useState("");
@@ -163,7 +163,7 @@ const Dashboard = () => {
         <div className="max-w-4xl mx-auto">
           <div className="flex justify-between items-center mb-8">
             <h1 className="text-3xl font-bold text-gray-800">
-              <span className="text-orange-500">FITNESS</span> DASHBOARD
+              <span className="text-orange-500">TrainMate</span> DASHBOARD
             </h1>
             <div className="space-x-4">
               <button
@@ -330,6 +330,7 @@ const Dashboard = () => {
           </div>
         </div>
       </div>
+      <Chat />
     </div>
   );
 };
