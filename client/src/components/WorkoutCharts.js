@@ -1,5 +1,6 @@
 import React from "react";
 import { Bar } from "react-chartjs-2";
+
 import {
   Chart as ChartJS,
   LinearScale,
@@ -10,10 +11,18 @@ import {
   Legend,
 } from "chart.js";
 
-ChartJS.register(LinearScale, CategoryScale, BarElement, Tooltip, Title, Legend);
+ChartJS.register(
+  LinearScale,
+  CategoryScale,
+  BarElement,
+  Tooltip,
+  Title,
+  Legend
+);
 
 const WorkoutCharts = ({ workouts }) => {
-  if (!workouts || workouts.length === 0) return <p>No data to show in chart.</p>;
+  if (!workouts || workouts.length === 0)
+    return <p>No data to show in chart.</p>;
 
   const labels = workouts.map((workout) =>
     new Date(workout.date).toLocaleDateString()
@@ -45,7 +54,14 @@ const WorkoutCharts = ({ workouts }) => {
   };
 
   return (
-    <div style={{ maxWidth: "700px", margin: "0 auto", background: "#f4f4f4", padding: "1rem" }}>
+    <div
+      style={{
+        maxWidth: "700px",
+        margin: "0 auto",
+        background: "#f4f4f4",
+        padding: "1rem",
+      }}
+    >
       <Bar data={data} options={options} />
     </div>
   );
