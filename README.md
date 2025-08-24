@@ -47,40 +47,19 @@
 1. **Clone the repository:**
    ```bash
    git clone https://github.com/MudgalSagar/train-mate.git
-Install dependencies:
 
-bash
-Copy
-Edit
-cd train-mate
-npm install
-Run the backend server:
 
-bash
-Copy
-Edit
-cd backend
-npm start
-Run the frontend:
 
-bash
-Copy
-Edit
-cd frontend
-npm start
-📊 Future Enhancements:
-Add workout reminders & notifications.
 
-Expand chatbot capabilities with advanced AI.
+### 📊 Future Enhancements:
+--**Add workout reminders & notifications.**
 
-Support wearable integration for live fitness data.
+--**Expand chatbot capabilities with advanced AI.**
 
-Provide community features (sharing progress with friends).
+--**Support wearable integration for live fitness data.**
 
-🙌 Contributing:
-Pull requests are welcome! For major changes, please open an issue first to discuss what you would like to change.
+--**Provide community features (sharing progress with friends).**
 
-🧑‍💻 Author:
-Sagar Mudgal
+### 🙌 Contributing:
+--**Pull requests are welcome! For major changes, please open an issue first to discuss what you would like to change.**
 
-GitHub
